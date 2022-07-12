@@ -1,0 +1,54 @@
+{% extends 'admin/baseadmin.html' %}
+
+{% block content %}
+<div class="container bg-light mlx-4 my-4">
+    {% for  msg in messages %}
+    <h1 style="color: blueviolet; text-align:center;">{{ msg }}</h1>
+    {% endfor %}
+</div>   
+<div class="   shadow-5-strong" style="
+margin-top: 50px;
+margin-left: 100px;
+margin-right: 100px;
+margin-bottom: 50px;
+background: hsla(0, 0%, 100%, 0.8);
+backdrop-filter: blur(30px);
+">
+<div class="row justify-content-center"> <h2 class="fw-bold mb-1">Show Student List </h2>
+    <div class="col-lg-10"><center><table class="table table-striped table-secondary table-sm"border="2px">
+        <thead class="bg-warning">
+            <tr>
+                <!--<th>STUDENT ID</th>-->
+                <th>STUDENT_NAME</th>
+                <th>ADDRESS</th>
+                <th>AGE</th>
+                <th>EMAIL_ID</th>
+                <th>JOINING_DATE</th>
+                <th>COURSE_NAME</th>
+                <th>COURSE_FEE</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for s in students %}
+            <tr>
+                <!--<td>{{ s.id }}</td>-->
+                <td>{{ s.std_name }}</td>
+                <td>{{ s.std_address }}</td>
+                <td>{{ s.std_age}}</td>
+                <td>{{ s.std_email}}</td>
+                <td>{{ s.joining_date}}</td>
+                <td>
+                {{ s.course.course_name}}      
+                </td>
+                <td>
+                {{ s.course.fee}}
+                </td>
+            {% endfor %} 
+            </tr>                   
+        </tbody>
+    </table></center></div></div>
+</div>
+   
+    {% endblock %}

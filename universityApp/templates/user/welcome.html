@@ -1,0 +1,26 @@
+{% extends 'user/baseuser.html' %}
+
+{% block content %}
+{% load static %}
+    <div class="container bg-light mlx-4 my-4">
+        {% for  msg in messages %}
+        <h1 style="color: blueviolet; text-align:center;">{{ msg }}</h1>
+        {% endfor %}
+        
+       
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <a href="{% url 'profile' %}" rol="button" class="btn btn-info w-100">profile</a>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <a href="{% url 'logout' %}" rol="button" class="btn btn-info w-100">LOG OUT</a>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+    {% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'admin/baseadmin.html' %}
+
+{% block content %}
+<center>
+    <form method="POST" action="/delete_student/{{ t.user.id }} ">
+        {% csrf_token %}
+
+        <p>Are you sure you want to delete 
+            <strong>
+                '{{ t.user.username }}'
+            </strong>
+        </p>
+        <a href="javascript:history.go(-1);">
+            Go Back
+        </a>
+        <input type="submit"class="btn btn-warning" value="Confirm"/>
+    </form>
+</center>
+{% endblock %}

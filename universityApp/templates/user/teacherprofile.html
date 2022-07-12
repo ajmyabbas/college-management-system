@@ -1,0 +1,29 @@
+{% extends 'user/baseuser.html' %}
+
+{% block content %}
+{% load static %}
+   <center>
+        <div class="card" style="width:18rem ">
+            <h5 class="card-header text-white bg-dark">
+                teacher Profile </h5><center>
+                    {% if teacher.user_photo  == 'static/images/user.png'  %}
+                       <img src="{% static 'images/user.png' %}" class="w-25"><br>
+                    {% else %}        
+                       <img src="{{ teacher.user_photo.url }}" class="w-25">
+                    {% endif %}            
+            
+            <div class="card-body bg-light">
+                <p class="card-title"><span class="text-success h6">Name:</span>{{ teacher.user.username }}</p>
+                <p class="card-text"><span class="text-success h6">Email:</span>{{ teacher.user.email }}</p>
+                <p class="card-text"><span class="text-success h6">Date_Joined:</span>{{ teacher.user.date_joined }}</p>
+                <p class="card-text"><span class="text-success h6">Address:</span>{{ teacher.user_address }}</p>
+                <p class="card-text"><span class="text-success h6">gender:</span>{{ teacher.user_gender }}</p>
+                <p class="card-text"><span class="text-success h6">Mobile:</span>{{ teacher.user_mobile }}</p>
+                <p class="card-text"><span class="text-success h6">age:</span>{{ teacher.user_age }}</p>
+                <p class="card-text"><span class="text-success h6">Course:</span>{{ teacher.course.course_name }}</p> 
+                <a rol="button" class="btn btn-outline-dark btn-sm " href="{% url 'editprofile' teacher.user.id %}"><span class="fas fa-edit text-info ">Edit</span></a>
+            </div>    
+        </div>
+    
+    </center>
+    {% endblock %}

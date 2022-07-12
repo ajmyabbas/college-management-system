@@ -1,0 +1,46 @@
+{% extends 'admin/baseadmin.html' %}
+{% block content %}
+    <div class="container bg-light mlx-4 my-4">
+        {% for  msg in messages %}
+        <h1 style="color: blueviolet; text-align:center;">{{ msg }}</h1>
+        {% endfor %}
+        
+       
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <a href="{% url 'course1' %}" rol="button" class="btn btn-info w-100">ADD COURSE</a>
+        </div>
+    </div>
+        <div class="row mt-3">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <a href="{% url 'student1' %}" rol="button" class="btn btn-info w-100">ADD STUDENT</a>
+            </div>
+        </div>
+            <div class="row mt-3">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <a href="{% url 'show_studentlist' %}" rol="button" class="btn btn-info w-100">SHOW STUDENTS</a>
+                </div>
+            </div>
+                <div class="row mt-3">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <a href="{% url 'show_teacher_list' %}" rol="button" class="btn btn-info w-100">SHOW TEACHERS</a>
+                    </div></div>
+        
+        <div class="col-md-4"></div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <a href="{% url 'logout' %}" rol="button" class="btn btn-info w-100">LOG OUT</a>
+        </div>
+        
+        
+        <div class="col-md-4"></div>
+    </div>
+    
+    {% endblock %}

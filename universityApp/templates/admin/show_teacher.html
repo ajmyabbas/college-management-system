@@ -1,0 +1,66 @@
+{% extends 'admin/baseadmin.html' %}
+
+{% block content %}>
+{% load static %}
+<div class="container bg-light mlx-4 my-4">
+    {% for  msg in messages %}
+    <h1 style="color: blueviolet; text-align:center;">{{ msg }}</h1>
+    {% endfor %}
+</div>   
+<div class="   shadow-5-strong" style="
+margin-top: 50px;
+margin-left: 100px;
+margin-right: 100px;
+margin-bottom: 50px;
+background: hsla(0, 0%, 100%, 0.8);
+backdrop-filter: blur(30px);
+">
+<div class="row justify-content-center"> <h2 class="fw-bold mb-1">Show Teachers List </h2>
+    <div class="col-lg-10"><center><table class="table table-striped table-secondary table-sm"border="2px">
+        <thead class="bg-warning">
+            <tr>
+                <!--<th>STUDENT ID</th>-->
+                
+                <th>Teacher_NAME</th>
+                <th>Photo</th>
+                <th>ADDRESS</th>
+                <th>GENDR</th>
+                <th>AGE</th>
+                <th>COURSE_NAME</th>
+                <th>ACTION</th>
+            
+               
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for t in teachers %}
+            <tr>
+                <!--<td>{{ s.id }}</td>-->
+                
+                <td>{{ t.user.username }}</td>
+
+                <td>
+                
+                    {% if t.user_photo  == 'static/images/user.png'  %}
+                       <img src="{% static 'images/user.png' %}" class="w-25"><br>
+                    {% else %}        
+                       <img src="{{ t.user_photo.url }}" class="w-25">
+                    {% endif %}  
+                
+                <td>{{ t.user_address }}</td>
+                <td>{{ t.user_gender }}</td>
+                <td>{{ t.user_age }}</td>
+                
+                <td>
+                {{ t.course.course_name}}      
+                </td>
+                <td>
+                    <a class="text-danger h6"href="{% url 'delete' t.user_id  %}"><span class="fa fa-trash text-danger">Delete</span></a>
+                </td>
+            
+            {% endfor %} 
+            </tr>                   
+        </tbody>
+    </table></center></div></div>
+    {% endblock %}

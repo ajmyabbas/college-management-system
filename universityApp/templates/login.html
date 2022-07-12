@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- <h1 style="margin-top: 20%;">
+    login********************
+</h1> -->
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        {% for message in messages %}
+        <h5>
+            <div class="alert alert-danger mt-5">
+                {{ message }}
+            </div>
+        </h5>
+            {% endfor %}
+    </div>
+   
+</div>
+        <div class="card  justify-content-center shadow-5-strong" style="
+        margin-top: 50px;
+        margin-left: 270px;
+        margin-right: 270px;
+        margin-bottom: 50px;
+        background: hsla(0, 0%, 100%, 0.8);
+        backdrop-filter: blur(30px);
+        "><div class="row justify-content-center">
+          <div class="col-lg-8"><h2 class="fw-bold mb-5 "><center>Log In</center></h2>
+            
+            <form method='post' class='post-form' action="{% url 'userlogin' %}">
+                {% csrf_token %}
+                
+                <div class="input-group mb-3">
+                    <div class="input-group-append">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input type="text" name="username" class="form-control input_user" value="" placeholder="username">
+                </div>
+                <div class="input-group mb-2">
+                    <div class="input-group-append">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input type="password" name="password" class="form-control input_pass" value="" placeholder="password">
+                </div>
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4 mt-3">
+                        <button type="submit" class="btn btn-primary btn-block mb-4">LogIn</button>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+                <div class="text-center">
+                    <p>Not a member? <a href="{% url 'user_signup'%}">Register</a></p>
+                    <p>or<br> sign up with:</p>
+                    <button type="button" class="btn btn-link btn-floating mx-1">
+                      <i class="fab fa-facebook-f"></i>
+                    </button>
+                
+                    <button type="button" class="btn btn-link btn-floating mx-1">
+                      <i class="fab fa-google"></i>
+                    </button>
+                
+                    <button type="button" class="btn btn-link btn-floating mx-1">
+                      <i class="fab fa-twitter"></i>
+                    </button>
+                
+                    <button type="button" class="btn btn-link btn-floating mx-1">
+                      <i class="fab fa-github"></i>
+                    </button>
+                  </div>
+            </form>
+        </div>
+    </div>
+    </div>
+
+
+{% endblock %}
